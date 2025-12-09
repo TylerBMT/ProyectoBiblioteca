@@ -124,7 +124,12 @@ class ClienteViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
-        return Usuario.objects.filter(is_superuser=False)
+        return (
+            Usuario.objects
+            .filter(is_superuser=False)
+            .exclude(roles__nombre='Administrador')
+            .distinct()
+        )
 
     def get_serializer_class(self):
         if self.action in ['create', 'update', 'partial_update']:
