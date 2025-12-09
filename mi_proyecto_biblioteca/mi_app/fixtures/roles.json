@@ -1,0 +1,4 @@
+[
+    { "model": "mi_app.rol", "pk": 1, "fields": { "nombre": "Admin" }},
+    { "model": "mi_app.rol", "pk": 2, "fields": { "nombre": "Cliente" }}
+]
